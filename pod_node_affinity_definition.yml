@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red
+  labels:
+    type: red
+spec:
+  template:
+    metadata:
+      name: red
+      labels:
+        type: red
+    spec:
+      containers:
+      - image: nginx
+        name: red
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role.kubernetes.io/master
+                operator: Exists
+  replicas: 2
+  selector:
+    matchLabels:
+      type: red
