@@ -13,8 +13,8 @@ spec:
     volumeMounts:
     - mountPath: /opt
       name: data-volume
-volumes:
-- name: data-volume
-  hostPath:
-    path: /data
-    type: Directory
+  volumes:
+  - name: data-volume
+    hostPath:
+      path: /data
+      type: Directory

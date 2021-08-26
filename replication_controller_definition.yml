@@ -9,8 +9,8 @@ spec:
     metadata:
       labels:
         type: cache
-      spec:
-        containers:
-        - name: redis
-          image: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis
   replicas: 3
